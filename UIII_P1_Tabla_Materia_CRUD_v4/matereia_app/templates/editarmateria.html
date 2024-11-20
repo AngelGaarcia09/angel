@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block cuerpo %}
+<div class="row">
+<div class="col-md-4-offset-md-4">
+    <!--La tarfeta card-->
+    <div class="card"><!--Targeta-->
+        <div class="card-body">
+        <form action="/editarMateria/" method="POST">  {% csrf_token%} <!--Formulario-->
+            <!--1-->
+            <div class="form-group">
+                <input type="text" id="txtcodigo" name="txtcodigo" class="form-control" 
+                value="{{mismaterias.codigo}}" minlength="6" maxlength="6" readonly required>
+            </div>
+            <!--2-->
+            <div class="form-roup py-3">
+                <input type="text" id="txtnombre" name="txtnombre" class="form-control" 
+                value="{{mismaterias.nombre}}"  maxLength="100" required>
+            </div>
+            <div class="form-roup">
+                <input type="text" id="numcreditos" name="numcreditos" class="form-control" 
+                value="{{mismaterias.creditos}}" min="1" max="9" required>
+            </div>
+            <!--3-->
+            <div class="form-roup py-2">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+
+        </form><!--formulario-->
+        </div>
+
+
+    <!--Fin de la tarfeta card-->
+</div><!--Columna-->
+
+</div><!--La fila-->
+{% endblock %}
